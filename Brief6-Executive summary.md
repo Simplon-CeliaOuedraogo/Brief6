@@ -1,13 +1,30 @@
-**Brief 6**
+# **Brief 6**
 
 *Dans WSL Ubuntu*
 
-[toc]
+## Sommaire
 
+- [Brief 6 - part 1 : Kubernetes](#B6-1)
+    - [Chapitre 1 : Déployer un cluster AKS](#C1)
+    - [Chapitre 2 : Déployer un container Redis](#C2)
+    - [Chapitre 3 : Déployer un container Voting App](#C3)
+    - [Chapitre 4 : Un mot de passe pour Redis](#C4)
+    - [Chapitre 5 : Configurer un stockage persistent pour Redis](#C5)
+- [Brief 6 - part 2 : Kubernetes scaling](#B6-2)
+    - [Chapitre 6 : Utiliser Azure Application Gateway avec AKS](#C6)
+    - [Chapitre 7 : Un nom de domaine pour Voting App](#C7)
+    - [Chapitre 8 : Un certificat TLS pour Voting App](#C8)
+    - [Chapitre 9 : Scaling de la Voting App](#C9)
+- [Fonctionnement de Kubernetes](#Kube)
+
+<div id=B6-1>
+     
 # Brief 6 - part 1 : Kubernetes
 
+<div id=C1>
+    
 ## Chapitre 1 : Déployer un cluster AKS
-
+    
 ### Créer un cluster AKS avec 2 nodes
 
 Connexion azure CLI
@@ -41,6 +58,8 @@ Téléchargement des informations d’identification et configuration de l’int
 
 Vérification de la connexion au cluster
 ``kubectl get nodes``
+    
+<div id=C2>
 
 ## Chapitre 2 : Déployer un container Redis
 
@@ -109,8 +128,10 @@ Utilisation de redis cli pour vérifier que redis fonctionne : ``redis-cli ping`
 ### Test de la connection au container Redis déployé à l'aide de l'adresse IP externe
 
 ``kubectl get svc`` (pour obtenir l'adresse IP externe)
-``redis-cli -h >External IP adress<``
+``redis-cli -h ExternalIPAdress``
 
+<div id=C3>
+                                      
 ## Chapitre 3 : Déployer un container Voting App
 
 ### Création d'un Deployment 
@@ -183,6 +204,8 @@ spec:
 ### Test du fonctionnement de l'application déployée à l'aide de l'adresse IP externe
 
 ![](https://i.imgur.com/FYSHGsq.png)
+    
+<div id=C4>
 
 ## Chapitre 4 : Un mot de passe pour Redis
 
@@ -259,6 +282,8 @@ spec:
               name: redispw
               key: password
 ```
+    
+<div id=C5>
 
 ## Chapitre 5 : Configurer un stockage persistent pour Redis
 
@@ -317,8 +342,12 @@ spec:
               
 ### Stockage permanent : le PersistentVolumeClaim et les votes restent quand on supprime les containers
 
+<div id=B6-2>
+    
 # Brief 6 - part 2 : Kubernetes scaling
 
+<div id=C6>
+    
 ## Chapitre 6 : Utiliser Azure Application Gateway avec AKS
 
 ### Recréer un cluster AKS avec l’add-on AGIC et 4 nodes
@@ -371,12 +400,16 @@ spec:
     app: votelabel
 ```
 
+<div id=C7>
+    
 ## Chapitre 7 : Un nom de domaine pour Voting App
 
 Modification de l'adresse IP référencée par l'enregistrement DNS créé dans le Brief 5.
 
 ![](https://i.imgur.com/GqeDgV0.png)
 
+<div id=C8>
+    
 ## Chapitre 8 : Un certificat TLS pour Voting App
 
 ### Création d'un certificat TLS pour la Voting App en utilisant Certbot et le challenge DNS
@@ -418,6 +451,8 @@ spec:
   tls: 
     - secretName: ingress-tls
 ```
+  
+<div id=C9>
     
 ## Chapitre 9 : Scaling de la Voting App
 
@@ -467,6 +502,8 @@ Test de montée en charge du [Brief 4](https://github.com/simplon-paul-lion/Brie
 
 ![](https://i.imgur.com/Mr4rHxW.png)
 
+<div id=Kube>
+    
 # Fonctionnement de Kubernetes
 
 Kubernetes : outil open-source permettant d'automatiser le déploiement, la mise à l'échelle et la gestion des conteneurs, qui contiennent les ressources nécessaires pour faire tourner l’application. L'état des applications conteneurisés est défini par des fichiers de configuration constitués de fichiers JSON ou YAML, puis maintenu par Kubernetes (controller-manager).
