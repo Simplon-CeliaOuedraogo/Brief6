@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: redis
+  labels:
+    app: redislabel
+spec:
+  selector:
+    matchLabels:
+      app: redislabel
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: redislabel
+    spec:
+      volumes:
+        - name: redis-storage
+          persistentVolumeClaim:
+            claimName: pvclaim
+      containers:
+      - name: redis
+        image: redis:latest
+        args: ["--requirepass", "$(REDIS_PASS)"]
+        ports:
+        - containerPort: 6379
+        volumeMounts:
+        - mountPath: “/votingapp”  
+          name: redis-storage
+        env:
+        - name: ALLOW_EMPTY_PASSWORD
+          value: "no"
+        - name: REDIS_PASS
+          valueFrom:
+            secretKeyRef:
+              name: redispw
+              key: password
