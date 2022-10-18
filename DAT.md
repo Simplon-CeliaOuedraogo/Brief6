@@ -31,7 +31,7 @@ L'utilisateur se connectera via le Web en utilisant un nom de domaine authentifi
 
 ### Représentation technique
 
-- L'image utilisée est la dernière image REDIS. Cela est à changer hors phase de test. REDIS sera déployé et défini en tant que Cluster. Le port du container REDIS sera 6379.
+- L'image utilisée est la dernière image REDIS. Cela est à changer hors phase de test. REDIS sera déployé et défini en tant que Cluster. Le port du container REDIS sera 6379. Le mot de passe REDIS sera stocké dans un Secret.
 - L'image de l'application de vote sera trouvée à : whujin11e/public:azure_voting_app. L'application sera déployée et définie en tant que Cluster. Le port du container de l'application sera 80.
 - L'Ingress sera configuré avec Azure Application Gateway en Ingress controller, le certificat TLS en Secret et le cluster de l'application de vote en backend.
 - Le PersistentVolumeClaim et le StorageClass définiront un stockage en autorisation Read/Write, qui peut s'étendre durant un auto scaling.
