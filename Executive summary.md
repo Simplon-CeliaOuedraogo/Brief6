@@ -37,7 +37,7 @@ Outil permettant d’automatiser le déploiement, la mise à l’échelle et la 
 
 ----
 
-**Nœuds** : serveurs physiques ou virtuels qui les tâches assignées par le plan de contrôle
+**Nœuds** : serveurs physiques ou virtuels qui exécutent les tâches assignées par le plan de contrôle
 ![](https://i.imgur.com/YX5A9wj.png)
 
 ----
