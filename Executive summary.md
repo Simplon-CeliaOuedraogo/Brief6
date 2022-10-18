@@ -10,6 +10,7 @@ slideOptions:
   transition: 'fade'
   spotlight:
     enabled: true
+
 ---
 
 # Brief 6 : Kubernetes
