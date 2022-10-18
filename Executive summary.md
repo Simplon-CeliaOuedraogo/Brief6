@@ -89,7 +89,7 @@ Outil permettant d’automatiser le déploiement, la mise à l’échelle et la 
 
 *Groupe de ressource / Nom / Nombre de noeuds / Ingress / Gateway / Subnet*
 
-![](https://i.imgur.com/M7Piqz6.png =850x)
+![](https://i.imgur.com/M7Piqz6.png)
 
 ----
 
@@ -118,7 +118,7 @@ Outil permettant d’automatiser le déploiement, la mise à l’échelle et la 
 
 ## Architecture finale
 
-![](https://i.imgur.com/PT9lgtI.png =800x)
+![](https://i.imgur.com/PT9lgtI.png)
 
 ----
 
@@ -130,7 +130,7 @@ Outil permettant d’automatiser le déploiement, la mise à l’échelle et la 
 
 ### Test de charge
 
-![](https://i.imgur.com/Mr4rHxW.png =400x)
+![](https://i.imgur.com/Mr4rHxW.png)
 
 ----
 
