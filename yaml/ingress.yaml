@@ -8,7 +8,7 @@ spec:
   tls: 
     - secretName: ingress-tls
   rules:
-    http:
+  - http:
       paths:
       - path: /
         pathType: Prefix
